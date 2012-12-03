@@ -23,9 +23,7 @@ public class Hello {
 			// otherwise, we have some arguments -- some people to greet
 
 			// loop over all of the arguments
-			for (int i = 0; i < args.length; i = i + 1) {
-				// get the name of the person and greet it
-				String name = args[i];
+			for (String name : args) {
 				System.out.println("Hello, " + name);
 			}
 		}
