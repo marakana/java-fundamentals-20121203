@@ -15,11 +15,12 @@ public class Hello {
 	 *            with
 	 */
 	public static void main(String[] args) {
-		try {
+		if (args.length > 0) {
 			String name = args[0];
 			System.out.println("Hello, " + name);
-		} catch (ArrayIndexOutOfBoundsException e) {
+		} else {
 			System.out.println("Hello, Nobody.");
 		}
 	}
+
 }
