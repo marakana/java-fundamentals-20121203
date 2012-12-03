@@ -15,39 +15,24 @@ public class Hello {
 	 *            with
 	 */
 	public static void main(String[] args) {
-		if (args.length > 0) {
-			String name = args[0];
-			System.out.println("Hello, " + name);
-		} else {
-			System.out.println("Hello, Nobody.");
-		}
-	}
 
-	// example of case statements with intentionally missing breaks
-	public static void printDaysInMonth(int num) {
-		int days;
-		switch (num) {
-		case 2:
-			days = 28;
-			break;
-		case 4:
-		case 6:
-		case 9:
-		case 11:
-			days = 30;
-			break;
-		case 1:
-		case 3:
-		case 5:
-		case 7:
-		case 8:
-		case 10:
-		case 12:
-			days = 31;
-			break;
-		default:
-			throw new IllegalArgumentException();
+		// if we have nobody to greet (no command-line arguments)...
+		if (args.length == 0) {
+			// then just say "hello nobody"
+			System.out.println("Hello, Nobody.");
+		} else {
+			// otherwise, we have some arguments -- some people to greet
+			
+			// initialize a counter, and loop over all of the arguments
+			int i = 0;
+			while (i < args.length) {
+				// get the name of the person and greet it
+				String name = args[i];
+				System.out.println("Hello, " + name);
+				
+				// don't forget to increment the counter.
+				i = i + 1;
+			}
 		}
-		System.out.println(days);
 	}
 }
