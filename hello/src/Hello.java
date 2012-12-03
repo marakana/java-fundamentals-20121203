@@ -15,23 +15,18 @@ public class Hello {
 	 *            with
 	 */
 	public static void main(String[] args) {
-
 		// if we have nobody to greet (no command-line arguments)...
 		if (args.length == 0) {
 			// then just say "hello nobody"
 			System.out.println("Hello, Nobody.");
 		} else {
 			// otherwise, we have some arguments -- some people to greet
-			
-			// initialize a counter, and loop over all of the arguments
-			int i = 0;
-			while (i < args.length) {
+
+			// loop over all of the arguments
+			for (int i = 0; i < args.length; i = i + 1) {
 				// get the name of the person and greet it
 				String name = args[i];
 				System.out.println("Hello, " + name);
-				
-				// don't forget to increment the counter.
-				i = i + 1;
 			}
 		}
 	}
