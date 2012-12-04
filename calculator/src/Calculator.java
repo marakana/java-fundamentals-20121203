@@ -2,6 +2,17 @@ import java.util.Stack;
 
 public class Calculator {
 
+	// handle a number
+	public static boolean handleNumber(String token, Stack<Integer> stack) {
+		try {
+			int number = Integer.parseInt(token);
+			stack.push(number);
+			return true;
+		} catch (NumberFormatException e) {
+			return false;
+		}
+	}
+
 	// handle an operator
 	public static boolean handleOperator(String token, Stack<Integer> stack) {
 		if (token.equals("+")) {
@@ -9,19 +20,19 @@ public class Calculator {
 			stack.push(lhs + rhs);
 			return true;
 		}
-		
+
 		if (token.equals("-")) {
 			int rhs = stack.pop(), lhs = stack.pop();
 			stack.push(lhs - rhs);
 			return true;
 		}
-		
+
 		if (token.equals("*")) {
 			int rhs = stack.pop(), lhs = stack.pop();
 			stack.push(lhs * rhs);
 			return true;
 		}
-		
+
 		if (token.equals("/")) {
 			int rhs = stack.pop(), lhs = stack.pop();
 			stack.push(lhs / rhs);
@@ -45,16 +56,11 @@ public class Calculator {
 			// initialize an empty stack, and loop through all the tokens
 			Stack<Integer> stack = new Stack<Integer>();
 			for (String token : tokens) {
-
-				try {
-					// try to handle the token as a number ...
-					int number = Integer.parseInt(token);
-					stack.push(number);
-				} catch (NumberFormatException e) {
-					handleOperator(token, stack);
+				if (!handleNumber(token, stack) && !handleOperator(token, stack)) {
+					throw new IllegalArgumentException("garbage in expression");
 				}
 			}
-			
+
 			System.out.println(stack.pop());
 		}
 
