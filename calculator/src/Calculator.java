@@ -2,6 +2,35 @@ import java.util.Stack;
 
 public class Calculator {
 
+	// handle an operator
+	public static boolean handleOperator(String token, Stack<Integer> stack) {
+		if (token.equals("+")) {
+			int rhs = stack.pop(), lhs = stack.pop();
+			stack.push(lhs + rhs);
+			return true;
+		}
+		
+		if (token.equals("-")) {
+			int rhs = stack.pop(), lhs = stack.pop();
+			stack.push(lhs - rhs);
+			return true;
+		}
+		
+		if (token.equals("*")) {
+			int rhs = stack.pop(), lhs = stack.pop();
+			stack.push(lhs * rhs);
+			return true;
+		}
+		
+		if (token.equals("/")) {
+			int rhs = stack.pop(), lhs = stack.pop();
+			stack.push(lhs / rhs);
+			return true;
+		}
+
+		return false;
+	}
+
 	public static void main(String[] args) {
 
 		if (args.length != 1) {
@@ -22,23 +51,7 @@ public class Calculator {
 					int number = Integer.parseInt(token);
 					stack.push(number);
 				} catch (NumberFormatException e) {
-
-					// if the token wasn't a number, try to handle it as an operator ...
-					if (token.equals("+")) {
-						int rhs = stack.pop(), lhs = stack.pop();
-						stack.push(lhs + rhs);
-					} else if (token.equals("-")) {
-						int rhs = stack.pop(), lhs = stack.pop();
-						stack.push(lhs - rhs);
-					} else if (token.equals("*")) {
-						int rhs = stack.pop(), lhs = stack.pop();
-						stack.push(lhs * rhs);
-					} else if (token.equals("/")) {
-						int rhs = stack.pop(), lhs = stack.pop();
-						stack.push(lhs / rhs);
-					} else {
-						throw new IllegalArgumentException("bad expression");
-					}
+					handleOperator(token, stack);
 				}
 			}
 			
