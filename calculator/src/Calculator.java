@@ -1,3 +1,5 @@
+import java.util.Stack;
+
 public class Calculator {
 
 	public static void main(String[] args) {
@@ -11,7 +13,8 @@ public class Calculator {
 			// split the expression into tokens, using space as the delimiter
 			String[] tokens = expression.split(" ");
 
-			// loop through all the tokens
+			// initialize an empty stack, and loop through all the tokens
+			Stack<Integer> stack = new Stack<Integer>();
 			for (String token : tokens) {
 
 				// distinguish numbers from non-numbers
