@@ -20,7 +20,19 @@ public class Calculator {
 					System.out.println(number + " is a number token");
 					//   if you see a number: push it on the stack
 				} catch (NumberFormatException e) {
-					System.out.println(token + " is not a number");
+					
+					if (token.equals("+")) {
+						System.out.println("+ is an operator");
+					} else if (token.equals("-")) {
+						System.out.println("- is an operator");
+					} else if (token.equals("*")) {
+						System.out.println("* is an operator");
+					} else if (token.equals("/")) {
+						System.out.println("/ is an operator");
+					} else {
+						System.out.println(token + " is garbage");
+					}
+
 					//   if you see an operator:
 					//     - pop two numbers off the stack
 					//     - perform the operation
