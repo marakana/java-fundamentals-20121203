@@ -42,27 +42,31 @@ public class Calculator {
 		return false;
 	}
 
+	public static int calculate(String expression) {
+		// split the expression into tokens, using space as the delimiter
+		String[] tokens = expression.split(" ");
+
+		// initialize an empty stack, and loop through all the tokens
+		Stack<Integer> stack = new Stack<Integer>();
+		for (String token : tokens) {
+			if (!handleNumber(token, stack) && !handleOperator(token, stack)) {
+				throw new IllegalArgumentException("garbage in expression");
+			}
+		}
+
+		// the result is the last number remaining on the stack
+		return stack.pop();
+	}
+
 	public static void main(String[] args) {
 
+		// make sure we have exactly one command-line argument
 		if (args.length != 1) {
 			System.err.println("Usage: Calculator <expression>");
-		} else {
-			// the expression is the first command-line argument
-			String expression = args[0];
-
-			// split the expression into tokens, using space as the delimiter
-			String[] tokens = expression.split(" ");
-
-			// initialize an empty stack, and loop through all the tokens
-			Stack<Integer> stack = new Stack<Integer>();
-			for (String token : tokens) {
-				if (!handleNumber(token, stack) && !handleOperator(token, stack)) {
-					throw new IllegalArgumentException("garbage in expression");
-				}
-			}
-
-			System.out.println(stack.pop());
+			return;
 		}
+
+		System.out.println(calculate(args[0]));
 
 	}
 
