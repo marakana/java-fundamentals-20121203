@@ -26,7 +26,25 @@ public class CalculatorTest {
 	public void handleNumberMustHandleNumbers() {
 		Stack<Integer> stack = new Stack<Integer>();
 		assertTrue(Calculator.handleNumber("42", stack));
+		assertEquals(1, stack.size());
 		assertEquals(42, (int) stack.peek());
+	}
+
+	@Test
+	public void handleNumberMustNotHandleNonNumbers() {
+		Stack<Integer> stack = new Stack<Integer>();
+		assertFalse(Calculator.handleNumber("foo", stack));
+		assertTrue(stack.isEmpty());
+	}
+
+	@Test
+	public void handleOperatorMustHandlePlus() {
+		Stack<Integer> stack = new Stack<Integer>();
+		stack.push(3);
+		stack.push(7);
+		assertTrue(Calculator.handleOperator("+", stack));
+		assertEquals(1, stack.size());
+		assertEquals(10, (int) stack.peek());
 	}
 
 	@Test
