@@ -11,13 +11,16 @@ public class Calculator {
 			// split the expression into tokens, using space as the delimiter
 			String[] tokens = expression.split(" ");
 
-			
-			// step 3: loop through all of the tokens
-			//   if you see a number: push it on the stack
-			//   if you see an operator:
-			//     - pop two numbers off the stack
-			//     - perform the operation
-			//     - push the result back on the stack
+			// loop through all the tokens
+			for (String token : tokens) {
+				System.out.println("token is " + token);
+
+				//   if you see a number: push it on the stack
+				//   if you see an operator:
+				//     - pop two numbers off the stack
+				//     - perform the operation
+				//     - push the result back on the stack
+			}
 			
 			// step 4: print whatever number is left on the stack
 		}
