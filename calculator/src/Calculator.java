@@ -13,13 +13,19 @@ public class Calculator {
 
 			// loop through all the tokens
 			for (String token : tokens) {
-				System.out.println("token is " + token);
 
-				//   if you see a number: push it on the stack
-				//   if you see an operator:
-				//     - pop two numbers off the stack
-				//     - perform the operation
-				//     - push the result back on the stack
+				// distinguish numbers from non-numbers
+				try {
+					int number = Integer.parseInt(token);
+					System.out.println(number + " is a number token");
+					//   if you see a number: push it on the stack
+				} catch (NumberFormatException e) {
+					System.out.println(token + " is not a number");
+					//   if you see an operator:
+					//     - pop two numbers off the stack
+					//     - perform the operation
+					//     - push the result back on the stack
+				}
 			}
 			
 			// step 4: print whatever number is left on the stack
