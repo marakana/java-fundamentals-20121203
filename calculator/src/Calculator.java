@@ -17,33 +17,32 @@ public class Calculator {
 			Stack<Integer> stack = new Stack<Integer>();
 			for (String token : tokens) {
 
-				// distinguish numbers from non-numbers
 				try {
+					// try to handle the token as a number ...
 					int number = Integer.parseInt(token);
-					System.out.println(number + " is a number token");
-					//   if you see a number: push it on the stack
+					stack.push(number);
 				} catch (NumberFormatException e) {
-					
-					if (token.equals("+")) {
-						System.out.println("+ is an operator");
-					} else if (token.equals("-")) {
-						System.out.println("- is an operator");
-					} else if (token.equals("*")) {
-						System.out.println("* is an operator");
-					} else if (token.equals("/")) {
-						System.out.println("/ is an operator");
-					} else {
-						System.out.println(token + " is garbage");
-					}
 
-					//   if you see an operator:
-					//     - pop two numbers off the stack
-					//     - perform the operation
-					//     - push the result back on the stack
+					// if the token wasn't a number, try to handle it as an operator ...
+					if (token.equals("+")) {
+						int rhs = stack.pop(), lhs = stack.pop();
+						stack.push(lhs + rhs);
+					} else if (token.equals("-")) {
+						int rhs = stack.pop(), lhs = stack.pop();
+						stack.push(lhs - rhs);
+					} else if (token.equals("*")) {
+						int rhs = stack.pop(), lhs = stack.pop();
+						stack.push(lhs * rhs);
+					} else if (token.equals("/")) {
+						int rhs = stack.pop(), lhs = stack.pop();
+						stack.push(lhs / rhs);
+					} else {
+						throw new IllegalArgumentException("bad expression");
+					}
 				}
 			}
 			
-			// step 4: print whatever number is left on the stack
+			System.out.println(stack.pop());
 		}
 
 	}
