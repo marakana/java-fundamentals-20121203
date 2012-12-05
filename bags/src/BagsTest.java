@@ -5,31 +5,32 @@ public class BagsTest {
 	@Test
 	public void test() {
 		Laptop lappy = new Laptop();
-		lappy.brand = "Apple";
-		lappy.cpuType = "Intel";
+		lappy.setBrand("Apple");
+		lappy.setCpuType("Intel");
 
 		// laptop memory
 		Memory mem = new Memory();
-		mem.speed = 133.3;
-		mem.size = 1024;
-		lappy.memory = mem;
+		mem.setSpeed(133.3);
+		mem.setSize(1024);
+		lappy.setMemory(mem);
 
 		// laptop disk
 		Disk disk = new Disk();
-		disk.capacity = 256;
-		disk.speed = 7200;
-		disk.type = "SATA";
-		lappy.disk = disk;
+		disk.setCapacity(256);
+		disk.setSpeed(7200);
+		disk.setType("SATA");
+		lappy.setDisk(disk);
 
 		// laptop applications.... TODO
 
 		// laptop bag
 		LaptopBag bag = new LaptopBag();
-		bag.brand = "Mission Workshop";
-		bag.capacity = 10.0;
-		bag.color = "Black";
-		bag.open = true;
-		bag.contents = lappy;
+		bag.setBrand("Mission Workshop");
+		bag.setCapacity(10.0);
+		bag.setColor("Black");
+		bag.setOpen(true);
+		
+		bag.setContents(lappy);
 
 		System.out.println(bag);
 	}
