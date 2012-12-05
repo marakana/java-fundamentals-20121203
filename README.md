@@ -9,6 +9,14 @@ Maintainability:
   * Consider block depth and method length as useful measures of code complexity.
   * If a method is too deep or too long, refactor it: extract helper methods.
 
+Class Recipe:
+
+  * `private` fields (mostly immutable, `final` fields whenever possible)
+  * Constructor to initialize immutable (and possibly other) fields
+  * Getter methods and setter methods
+  * Object identity: `hashCode` and `equals`
+  * Optionally: other methods
+
 Videos
 ------
 
@@ -25,6 +33,13 @@ Day 2:
   * https://mrkn.s3.amazonaws.com/recordings/java-fundamentals-cisco-20121203/2.2.mov
   * https://mrkn.s3.amazonaws.com/recordings/java-fundamentals-cisco-20121203/2.3.mov
   * https://mrkn.s3.amazonaws.com/recordings/java-fundamentals-cisco-20121203/2.4.mov
+
+Day 3:
+
+  * https://mrkn.s3.amazonaws.com/recordings/java-fundamentals-cisco-20121203/3.1.mov
+  * https://mrkn.s3.amazonaws.com/recordings/java-fundamentals-cisco-20121203/3.2.mov
+  * https://mrkn.s3.amazonaws.com/recordings/java-fundamentals-cisco-20121203/3.3.mov
+  * https://mrkn.s3.amazonaws.com/recordings/java-fundamentals-cisco-20121203/3.4.mov
 
 Miscellaneous Resources
 -----------------------
