@@ -1,21 +1,18 @@
 public class Memory {
-	private double speed;
-	private int size;
+	private final double speed;
+	private final int size;
+
+	public Memory(double speed, int size) {
+		this.speed = speed;
+		this.size = size;
+	}
 
 	public double getSpeed() {
 		return speed;
 	}
 
-	public void setSpeed(double speed) {
-		this.speed = speed;
-	}
-
 	public int getSize() {
 		return size;
-	}
-
-	public void setSize(int size) {
-		this.size = size;
 	}
 
 	@Override

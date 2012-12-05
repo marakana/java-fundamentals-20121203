@@ -1,44 +1,35 @@
 import java.util.Set;
 
 public class Laptop {
-	private String brand;
-	private String cpuType;
-	private Memory memory;
-	private Disk disk;
+	private final String brand;
+	private final String cpuType;
+	private final Memory memory;
+	private final Disk disk;
 	private Set<String> applications;
 	private boolean on;
 	private boolean open;
 
-	public String getBrand() {
-		return brand;
+	public Laptop(String brand, String cpuType, Memory memory, Disk disk) {
+		this.brand = brand;
+		this.cpuType = cpuType;
+		this.memory = memory;
+		this.disk = disk;
 	}
 
-	public void setBrand(String brand) {
-		this.brand = brand;
+	public String getBrand() {
+		return brand;
 	}
 
 	public String getCpuType() {
 		return cpuType;
 	}
 
-	public void setCpuType(String cpuType) {
-		this.cpuType = cpuType;
-	}
-
 	public Memory getMemory() {
 		return memory;
 	}
 
-	public void setMemory(Memory memory) {
-		this.memory = memory;
-	}
-
 	public Disk getDisk() {
 		return disk;
-	}
-
-	public void setDisk(Disk disk) {
-		this.disk = disk;
 	}
 
 	public Set<String> getApplications() {

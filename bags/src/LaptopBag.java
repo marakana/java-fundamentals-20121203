@@ -1,32 +1,26 @@
 public class LaptopBag {
-	private String brand;
-	private double capacity;
-	private String color;
+	private final String brand;
+	private final double capacity;
+	private final String color;
 	private boolean open;
 	private Laptop contents;
 
-	public String getBrand() {
-		return brand;
+	public LaptopBag(String brand, double capacity, String color) {
+		this.brand = brand;
+		this.capacity = capacity;
+		this.color = color;
 	}
 
-	public void setBrand(String brand) {
-		this.brand = brand;
+	public String getBrand() {
+		return brand;
 	}
 
 	public double getCapacity() {
 		return capacity;
 	}
 
-	public void setCapacity(double capacity) {
-		this.capacity = capacity;
-	}
-
 	public String getColor() {
 		return color;
-	}
-
-	public void setColor(String color) {
-		this.color = color;
 	}
 
 	public boolean isOpen() {
