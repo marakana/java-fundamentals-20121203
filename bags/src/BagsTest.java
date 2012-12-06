@@ -25,6 +25,7 @@ public class BagsTest {
 
 		// build the laptop using the storage
 		Laptop laptop = new Laptop("Apple", "Intel", storage);
+		laptop.setOpen(true);
 
 		// install some applications!
 		laptop.installApplication("eclipse");
