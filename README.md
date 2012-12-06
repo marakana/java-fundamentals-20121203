@@ -14,8 +14,21 @@ Class Recipe:
   * `private` fields (mostly immutable, `final` fields whenever possible)
   * Constructor to initialize immutable (and possibly other) fields
   * Getter methods and setter methods
-  * Object identity: `hashCode` and `equals`
+  * Structural identity: `hashCode` and `equals`
   * Optionally: other methods
+
+Object Identity
+---------------
+
+Reference identity
+
+  * do the references point at the same or different objects on the heap?
+  * `a == b`
+
+Structural identity
+
+  * do the objects have the same properties/state?
+  * `a.equals(b)`
 
 Videos
 ------

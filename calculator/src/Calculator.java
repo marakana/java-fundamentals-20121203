@@ -15,31 +15,23 @@ public class Calculator {
 
 	// handle an operator
 	public static boolean handleOperator(String token, Stack<Integer> stack) {
+		
+		Operator op;
 		if (token.equals("+")) {
-			int rhs = stack.pop(), lhs = stack.pop();
-			stack.push(lhs + rhs);
-			return true;
+			op = new Add();
+		} else if (token.equals("-")) {
+			op = new Subtract();
+		} else if (token.equals("*")) {
+			op = new Multiply();
+		} else if (token.equals("/")) {
+			op = new Divide();
+		} else {
+			return false;
 		}
 
-		if (token.equals("-")) {
-			int rhs = stack.pop(), lhs = stack.pop();
-			stack.push(lhs - rhs);
-			return true;
-		}
-
-		if (token.equals("*")) {
-			int rhs = stack.pop(), lhs = stack.pop();
-			stack.push(lhs * rhs);
-			return true;
-		}
-
-		if (token.equals("/")) {
-			int rhs = stack.pop(), lhs = stack.pop();
-			stack.push(lhs / rhs);
-			return true;
-		}
-
-		return false;
+		int rhs = stack.pop(), lhs = stack.pop();
+		stack.push(op.operate(lhs, rhs));
+		return true;
 	}
 
 	public static int calculate(String expression) {

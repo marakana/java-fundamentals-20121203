@@ -1,4 +1,8 @@
-import static org.junit.Assert.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 import org.junit.Test;
 
@@ -6,28 +10,36 @@ public class BagsTest {
 
 	@Test
 	public void test() {
-		Memory mem = new Memory(2048);
-		Disk disk = new Disk("SATA", 7200, 256);
-		Laptop lappy = new Laptop("Apple", "Intel", mem, disk);
+		
+		// create a collection of storage and insert a memory module
+		Collection<Storage> storage = new ArrayList<Storage>();
+		storage.add(new Memory(2048));
 
-		Memory mem2 = new Memory(133.3, 1024);
-		Disk disk2 = new Disk("SATA", 7200, 256);
-		Laptop lappy2 = new Laptop("Apple", "Intel", mem2, disk2);
+		// create a list of disks to build a RAID array
+		List<Disk> disks = new ArrayList<Disk>();
+		disks.add(new SSD(1, 1, 1));
+		disks.add(new SSD(1, 1, 1));
+		
+		// add the new RAID array to the storage collection
+		storage.add(new RAID(disks));
 
-		assertFalse(lappy == lappy2);
-		assertTrue(lappy.equals(lappy2));
+		// build the laptop using the storage
+		Laptop laptop = new Laptop("Apple", "Intel", storage);
 
-		// laptop applications.... TODO
+		// install some applications!
+		Set<String> applications = new HashSet<String>();
+		applications.add("eclipse");
+		applications.add("chrome");
+		laptop.setApplications(applications);
 
-		LaptopBag bag = new LaptopBag("Mission Workshop", 10.0, "Black");
-		bag.setOpen(true);
-		bag.setContents(lappy);
-
-		System.out.println(bag);
+		System.out.println(totalStorageCapacity(laptop));
 	}
 
-//	@Test
-//	public void whatever() {
-//		Computer c = new Computer();
-//	}
+	public static int totalStorageCapacity(Computer computer) {
+		int total = 0;
+		for (Storage s : computer.getStorage()) {
+			total += s.getCapacity();
+		}
+		return total;
+	}
 }
