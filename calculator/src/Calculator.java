@@ -18,13 +18,13 @@ public class Calculator {
 		
 		Operator op;
 		if (token.equals("+")) {
-			op = new Add();
+			op = Operator.ADD;
 		} else if (token.equals("-")) {
-			op = new Subtract();
+			op = Operator.SUBTRACT;
 		} else if (token.equals("*")) {
-			op = new Multiply();
+			op = Operator.MULTIPLY;
 		} else if (token.equals("/")) {
-			op = new Divide();
+			op = Operator.DIVIDE;
 		} else {
 			return false;
 		}

@@ -31,6 +31,7 @@ public class BagsTest {
 		laptop.installApplication("eclipse");
 		laptop.installApplication("chrome");
 
+		LaptopBag bag = new LaptopBag("Mission Workshop", 10.0, Color.getRandomColor());
 		System.out.println(totalStorageCapacity(laptop));
 	}
 

@@ -1,11 +1,11 @@
 public class LaptopBag {
 	private final String brand;
 	private final double capacity;
-	private final String color;
+	private final Color color;
 	private boolean open;
 	private Laptop contents;
 
-	public LaptopBag(String brand, double capacity, String color) {
+	public LaptopBag(String brand, double capacity, Color color) {
 		this.brand = brand;
 		this.capacity = capacity;
 		this.color = color;
@@ -19,7 +19,7 @@ public class LaptopBag {
 		return capacity;
 	}
 
-	public String getColor() {
+	public Color getColor() {
 		return color;
 	}
 
