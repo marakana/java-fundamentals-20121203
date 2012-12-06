@@ -1,18 +1,21 @@
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.Set;
 
 public class Laptop implements Computer {
 	private final String brand;
 	private final String cpuType;
 	private final Collection<Storage> storage;
-	private Set<String> applications;
+	private final Set<String> applications = new HashSet<String>();
 	private boolean on;
 	private boolean open;
 
 	public Laptop(String brand, String cpuType, Collection<Storage> storage) {
 		this.brand = brand;
 		this.cpuType = cpuType;
-		this.storage = storage;
+		this.storage = new ArrayList<Storage>(storage);
 	}
 
 	public String getBrand() {
@@ -24,15 +27,15 @@ public class Laptop implements Computer {
 	}
 
 	public Collection<Storage> getStorage() {
-		return storage;
+		return Collections.unmodifiableCollection(storage);
 	}
 
-	public Set<String> getApplications() {
-		return applications;
+	public void installApplication(String application) {
+		applications.add(application);
 	}
 
-	public void setApplications(Set<String> applications) {
-		this.applications = applications;
+	public void uninstallApplication(String application) {
+		applications.remove(application);
 	}
 
 	public boolean isOn() {

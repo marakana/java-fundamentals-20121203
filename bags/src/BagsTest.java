@@ -27,10 +27,8 @@ public class BagsTest {
 		Laptop laptop = new Laptop("Apple", "Intel", storage);
 
 		// install some applications!
-		Set<String> applications = new HashSet<String>();
-		applications.add("eclipse");
-		applications.add("chrome");
-		laptop.setApplications(applications);
+		laptop.installApplication("eclipse");
+		laptop.installApplication("chrome");
 
 		System.out.println(totalStorageCapacity(laptop));
 	}
