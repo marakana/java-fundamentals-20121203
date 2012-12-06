@@ -31,4 +31,9 @@ public class Memory implements Storage {
 		return true;
 	}
 
+	@Override
+	public String toString() {
+		return "Memory [capacity=" + capacity + "]";
+	}
+
 }

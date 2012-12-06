@@ -1,19 +1,18 @@
+import java.util.Collection;
 import java.util.Set;
 
 public class Laptop implements Computer {
 	private final String brand;
 	private final String cpuType;
-	private final Memory memory;
-	private final Disk disk;
+	private final Collection<Storage> storage;
 	private Set<String> applications;
 	private boolean on;
 	private boolean open;
 
-	public Laptop(String brand, String cpuType, Memory memory, Disk disk) {
+	public Laptop(String brand, String cpuType, Collection<Storage> storage) {
 		this.brand = brand;
 		this.cpuType = cpuType;
-		this.memory = memory;
-		this.disk = disk;
+		this.storage = storage;
 	}
 
 	public String getBrand() {
@@ -24,12 +23,8 @@ public class Laptop implements Computer {
 		return cpuType;
 	}
 
-	public Memory getMemory() {
-		return memory;
-	}
-
-	public Disk getDisk() {
-		return disk;
+	public Collection<Storage> getStorage() {
+		return storage;
 	}
 
 	public Set<String> getApplications() {
@@ -62,8 +57,7 @@ public class Laptop implements Computer {
 		int result = 1;
 		result = prime * result + ((brand == null) ? 0 : brand.hashCode());
 		result = prime * result + ((cpuType == null) ? 0 : cpuType.hashCode());
-		result = prime * result + ((disk == null) ? 0 : disk.hashCode());
-		result = prime * result + ((memory == null) ? 0 : memory.hashCode());
+		result = prime * result + ((storage == null) ? 0 : storage.hashCode());
 		return result;
 	}
 
@@ -86,23 +80,19 @@ public class Laptop implements Computer {
 				return false;
 		} else if (!cpuType.equals(other.cpuType))
 			return false;
-		if (disk == null) {
-			if (other.disk != null)
+		if (storage == null) {
+			if (other.storage != null)
 				return false;
-		} else if (!disk.equals(other.disk))
-			return false;
-		if (memory == null) {
-			if (other.memory != null)
-				return false;
-		} else if (!memory.equals(other.memory))
+		} else if (!storage.equals(other.storage))
 			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "Laptop [brand=" + brand + ", cpuType=" + cpuType + ", memory="
-				+ memory + ", disk=" + disk + ", applications=" + applications
-				+ ", on=" + on + ", open=" + open + "]";
+		return "Laptop [brand=" + brand + ", cpuType=" + cpuType + ", storage="
+				+ storage + ", applications=" + applications + ", on=" + on
+				+ ", open=" + open + "]";
 	}
+
 }

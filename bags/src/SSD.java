@@ -50,4 +50,10 @@ public class SSD implements Disk {
 		return true;
 	}
 
+	@Override
+	public String toString() {
+		return "SSD [readSpeed=" + readSpeed + ", writeSpeed=" + writeSpeed
+				+ ", capacity=" + capacity + "]";
+	}
+
 }

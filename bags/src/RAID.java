@@ -64,4 +64,9 @@ public class RAID implements Disk {
 		return true;
 	}
 
+	@Override
+	public String toString() {
+		return "RAID [disks=" + disks + "]";
+	}
+
 }
