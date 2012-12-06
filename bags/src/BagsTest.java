@@ -26,4 +26,8 @@ public class BagsTest {
 		System.out.println(bag);
 	}
 
+//	@Test
+//	public void whatever() {
+//		Computer c = new Computer();
+//	}
 }

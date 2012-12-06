@@ -1,28 +1,19 @@
-public class Memory {
-	private final double speed;
-	private final int size;
+public class Memory implements Storage {
+	private final int capacity;
 
-	public Memory(double speed, int size) {
-		this.speed = speed;
-		this.size = size;
+	public Memory(int capacity) {
+		this.capacity = capacity;
 	}
 
-	public double getSpeed() {
-		return speed;
-	}
-
-	public int getSize() {
-		return size;
+	public int getCapacity() {
+		return capacity;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + size;
-		long temp;
-		temp = Double.doubleToLongBits(speed);
-		result = prime * result + (int) (temp ^ (temp >>> 32));
+		result = prime * result + capacity;
 		return result;
 	}
 
@@ -35,16 +26,9 @@ public class Memory {
 		if (getClass() != obj.getClass())
 			return false;
 		Memory other = (Memory) obj;
-		if (size != other.size)
-			return false;
-		if (Double.doubleToLongBits(speed) != Double
-				.doubleToLongBits(other.speed))
+		if (capacity != other.capacity)
 			return false;
 		return true;
 	}
 
-	@Override
-	public String toString() {
-		return "Memory [speed=" + speed + ", size=" + size + "]";
-	}
 }

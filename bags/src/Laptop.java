@@ -1,6 +1,6 @@
 import java.util.Set;
 
-public class Laptop {
+public class Laptop implements Computer {
 	private final String brand;
 	private final String cpuType;
 	private final Memory memory;
