@@ -19,4 +19,11 @@ public class ShapesTest {
 		assertEquals(5, s.getHeight());
 	}
 
+	@Test
+	public void rectangleCopyWithHeightShouldNotChangeWidth() {
+		Rectangle r1 = new Rectangle(2, 3);
+		Rectangle r2 = r1.copyWithHeight(5);
+		assertEquals(2, r2.getWidth());
+	}
+
 }

@@ -1,7 +1,7 @@
 public class Rectangle {
 
-	private int width;
-	private int height;
+	protected final int width;
+	protected final int height;
 
 	public Rectangle(int width, int height) {
 		this.width = width;
@@ -12,16 +12,16 @@ public class Rectangle {
 		return width;
 	}
 
-	public void setWidth(int width) {
-		this.width = width;
+	public Rectangle copyWithWidth(int width) {
+		return new Rectangle(width, this.height);
 	}
 
 	public int getHeight() {
 		return height;
 	}
 
-	public void setHeight(int height) {
-		this.height = height;
+	public Rectangle copyWithHeight(int height) {
+		return new Rectangle(this.width, height);
 	}
 
 	public int getArea() {

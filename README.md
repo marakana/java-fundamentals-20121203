@@ -14,7 +14,7 @@ Class Recipe:
   * `private` fields (mostly immutable, `final` fields whenever possible)
   * Constructor to initialize immutable (and possibly other) fields
   * Getter methods and setter methods
-  * Structural identity: `hashCode` and `equals`
+  * Structural identity: `hashCode` and `equals` - use only final fields
   * Optionally: other methods
 
 Object Identity
@@ -53,6 +53,19 @@ Day 3:
   * https://mrkn.s3.amazonaws.com/recordings/java-fundamentals-cisco-20121203/3.2.mov
   * https://mrkn.s3.amazonaws.com/recordings/java-fundamentals-cisco-20121203/3.3.mov
   * https://mrkn.s3.amazonaws.com/recordings/java-fundamentals-cisco-20121203/3.4.mov
+
+Day 4:
+
+  * https://mrkn.s3.amazonaws.com/recordings/java-fundamentals-cisco-20121203/4.1.mov
+  * https://mrkn.s3.amazonaws.com/recordings/java-fundamentals-cisco-20121203/4.2.mov
+  * https://mrkn.s3.amazonaws.com/recordings/java-fundamentals-cisco-20121203/4.3.mov
+  * https://mrkn.s3.amazonaws.com/recordings/java-fundamentals-cisco-20121203/4.4.mov
+
+Day 5:
+
+  * https://mrkn.s3.amazonaws.com/recordings/java-fundamentals-cisco-20121203/5.1.mov
+  * https://mrkn.s3.amazonaws.com/recordings/java-fundamentals-cisco-20121203/5.2.mov
+  * https://mrkn.s3.amazonaws.com/recordings/java-fundamentals-cisco-20121203/5.3.mov
 
 Miscellaneous Resources
 -----------------------
